@@ -1,0 +1,198 @@
+/* General Header Styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px; /* Decreased height */
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+  border-bottom: 0.1px solid #333;
+  color: white;
+  z-index: 60;
+  position: sticky;
+  top: 0;
+  height: 60px; /* Define the height of the header if not already defined */
+}
+
+/* Logo Styling */
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: "Marck Script", cursive;
+}
+
+.logo img {
+  height: 30px; /* Adjusted height */
+  border-radius: 50%;
+  border: 3px solid #ff004f; /* Bright border color */
+  object-fit: cover;
+  margin-right: 15px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 8px 16px rgba(255, 0, 79, 0.6);
+}
+
+/* Outfitter Title */
+.title {
+  font-size: 250%; /* Adjusted font size */
+  color: #FEF8E6; /* Bright color */
+  letter-spacing: 2px;
+  margin-left: 15px;
+  line-height: 60px; /* Match this to the header height */
+  display: flex;
+  align-items: center; /* Vertically center the text */
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Header Right Section */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Navigation Links */
+.nav-link {
+  margin-right: 20px;
+  font-size: 22px; /* Increased font size */
+  text-decoration: none;
+  color: #e0e0e0;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+
+.nav-link:hover {
+  color: #ff004f;
+  transform: scale(1.1);
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: -5px;
+  left: 0;
+  background-color: #ff004f;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+/* Profile Info Styling */
+.profile-info {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.profile-picture-container {
+  position: relative;
+  padding-right: 20px;
+  padding-top: 12px;
+  
+}
+
+/* Profile Picture */
+.profile-picture {
+  border-radius: 50%;
+  width: 32px; /* Increased size */
+  height: 32px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: 3px solid #ff004f; /* Bright border color */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-picture:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(255, 0, 79, 0.5);
+}
+
+/* User Details */
+.user-details {
+  display: none;
+  flex-direction: column;
+  background-color: rgba(50, 50, 50, 0.95);
+  border: 1px solid #333;
+  padding: 10px;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  white-space: nowrap;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  
+}
+
+.profile-info:hover .user-details {
+  display: flex;
+}
+
+/* Login/Logout Button */
+.login-btn, .signup-btn, .logout-btn, button {
+  padding: 8px 24px;
+  background-color: #ff004f; /* Bright color for buttons */
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.signup-btn {
+  background-color: #ff004f; /* Same as login button */
+}
+
+.login-btn:hover, .signup-btn:hover, .logout-btn:hover {
+ background-color: #ffffff; /* Hover background color */
+  color: #e00042; /* Hover text color */
+  transform: translateY(-2px); /* Slight hover effect */
+  border: 2px solid #e00042;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .header-right {
+    margin-top: 10px;
+  }
+
+  .nav-link {
+    margin-right: 10px;
+    font-size: 12px; /* Adjusted for mobile */
+  }
+
+  .login-btn, .signup-btn {
+    padding: 0px 20px;
+    font-size: 14px;
+  }
+}
